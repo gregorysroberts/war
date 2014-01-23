@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	//what does this do?
+	//what does this do?changes suits
 	function convert_value_to_string(value) {
 		if (value > 10) {
 			switch (value) {
@@ -29,15 +29,30 @@ $(document).ready(function() {
 	}
 	
 	//shuffle the deck
-	
+	var shuffledDeck = _.shuffle(deck);
 	
 	var cards_player_1 = [];
 	var cards_player_2 = [];
 	//divide out the cards into the two arrays
-	
+	cards_player_1 = shuffledDeck.splice(0, 26);
+
+	cards_player_2 = shuffledDeck;
 	
 	//create a function (algorithm) called "war" that takes two cards as parameters, compares them and returns a winner. A tie should return false.
-	function war() {
+	var card1 = cards_player_1[0];
+	var card2 = cards_player_2[0];
+
+	console.log(card1);
+	console.log(card2);
+
+	function war(card1, card2) {
+		if (card1.number > card2.number) {
+			return card1;
+		} else if (card1.number < card2.number) {
+			return card2;
+		} else {
+			return false;
+		}
 	}
 	
 	
