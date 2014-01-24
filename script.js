@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	//what does this do?changes suits
+	//what does this do?
 	function convert_value_to_string(value) {
 		if (value > 10) {
 			switch (value) {
@@ -39,19 +39,15 @@ $(document).ready(function() {
 	cards_player_2 = shuffledDeck;
 	
 	//create a function (algorithm) called "war" that takes two cards as parameters, compares them and returns a winner. A tie should return false.
-	var card1 = cards_player_1[0];
-	var card2 = cards_player_2[0];
-
-	console.log(card1);
-	console.log(card2);
-
-	function war(card1, card2) {
-		if (card1.number > card2.number) {
-			return card1;
-		} else if (card1.number < card2.number) {
-			return card2;
+	function war (deckA, deckB) {
+	 	if (cards_player_1[0].number>cards_player_2[0].number)
+			return (cards_player_1[0]);
+			conosole.log("Card1 wins");
+		} else if (cards_player_1[0].number < cards_player_2[0].number) {
+			return (cards_player_2[0]);
+			console.log("Card2 wins");
 		} else {
-			return false;
+			return (false);
 		}
 	}
 	
@@ -60,7 +56,8 @@ $(document).ready(function() {
 		//compare the cards
 		//give the winner both cards (at end of deck)
 	function play() {
-		
+		$(".btn btn-lg btn-warning").click(war (cards_player_1, cards_player_2));
+
 		//this function (defined below) will continue to the next turn
 		advance();
 	}
